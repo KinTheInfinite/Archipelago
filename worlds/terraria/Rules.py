@@ -6,13 +6,19 @@ from ..generic.Rules import set_rule
 
 class TerraraLogic(LogicMixin):
     def _terraria_has_crafting_tier(self, player: int, amount:int) -> bool:
+        if not self.world.progressive_crafting[player]:
+            return True
         return self.has(ItemName.PROGRESSIVE_CRAFTING, player, amount)
 
     def _terraria_has_health_upgrades(self, player: int, amount: int) -> bool:
-        return self.has(ItemName.LIFE_CRYSTAL, player, 0)#amount)
+        if not self.world.progressive_life[player]:
+            return True
+        return self.has(ItemName.LIFE_CRYSTAL, player, amount)
         
     def _terraria_has_mana_upgrades(self, player: int, amount: int) -> bool:
-        return self.has(ItemName.MANA_CRYSTAL, player, 0)#amount)
+        if not self.world.progressive_mana[player]:
+            return True
+        return self.has(ItemName.MANA_CRYSTAL, player, amount)
         
     def _terraria_health_and_mana_maxed(self, player:int) -> bool:
         return self._terraria_has_health_upgrades(player, 15) and self._terraria_has_mana_upgrades(player, 9)

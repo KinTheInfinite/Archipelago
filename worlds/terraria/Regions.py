@@ -2,7 +2,7 @@ import typing
 
 from BaseClasses import MultiWorld, Region, Entrance, ItemClassification
 from .Items import TerrariaItem
-from .Locations import TerrariaLocation, location_table, progression_location_table, achievement_location_table, \
+from .Locations import TerrariaLocation, location_table, base_location_table, \
             life_crystal_location_table, mana_crystal_location_table
 from .Names import LocationName, ItemName
 
@@ -11,10 +11,15 @@ def create_regions(world, player: int):
     locations: typing.List[str] = []
 
     # Add required locations.
-    locations += [location for location in progression_location_table]
-    locations += [location for location in achievement_location_table]
-    locations += [location for location in life_crystal_location_table]
-    locations += [location for location in mana_crystal_location_table]
+    locations += [location for location in base_location_table]
+
+    # Add life crystal locations
+    if world.progressive_life[player]:
+        locations += [location for location in life_crystal_location_table]
+            
+    # Add mana crystal locations
+    if world.progressive_mana[player]:
+        locations += [location for location in mana_crystal_location_table]
 
     # Set up the regions correctly.
     world.regions += [

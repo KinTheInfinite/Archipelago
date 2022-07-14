@@ -1,8 +1,9 @@
 import typing
+import random
 
-from BaseClasses import Item, MultiWorld, Tutorial
-from .Items import TerrariaItem, ItemData, item_table, stat_upgrade_table, misc_items_table
-from .Locations import TerrariaLocation, location_table, progression_location_table, achievement_location_table, \
+from BaseClasses import Item, MultiWorld, ItemClassification, Tutorial
+from .Items import TerrariaItem, ItemData, item_table, stat_upgrade_table, trap_items_table, misc_items_table
+from .Locations import TerrariaLocation, location_table, base_location_table, \
             life_crystal_location_table, mana_crystal_location_table
 from .Options import terraria_options
 from .Regions import create_regions
@@ -43,6 +44,9 @@ class TerrariaWorld(World):
         return {
             "progressive_crafting": self.world.progressive_crafting[self.player],
             "death_link": self.world.death_link[self.player],
+            "progressive_life": self.world.progressive_life[self.player],
+            "progressive_mana": self.world.progressive_mana[self.player],
+            "trap_amount": self.world.trap_amount[self.player],
         }
 
     def _create_items(self, name: str):
@@ -59,22 +63,41 @@ class TerrariaWorld(World):
 
     def generate_basic(self):
         itempool: typing.List[TerrariaItem] = []
-        total_required_locations = len(location_table)
+        total_required_locations = 0
+        for region in self.world.regions:
+            total_required_locations += len(region.locations)
+        # Subtract Event Locations
+        total_required_locations -= 3
 
-        # Fill item pool with all required items
-        for item in {**stat_upgrade_table}:
-            itempool += self._create_items(item)
+        # Progressive Crafting Option
+        # Wood unlocked at start, 12 tiers of upgrades
+        if self.world.progressive_crafting[self.player]:
+            itempool += [self.create_item(ItemName.PROGRESSIVE_CRAFTING)] * 12
             
-        # Fill item pool with the remaining
+        # Progressive Life Option
+        if self.world.progressive_life[self.player]:
+            itempool += [self.create_item(ItemName.LIFE_CRYSTAL)] * 15
+            
+        # Progressive Mana Option
+        if self.world.progressive_mana[self.player]:
+            itempool += [self.create_item(ItemName.MANA_CRYSTAL)] * 9
+            
+        # Random trap amount (if any)
+        trap_amount = int(self.world.trap_amount[self.player])
+        if trap_amount > 0:
+            for i in range(trap_amount):
+                itempool += [self.create_item(random.choice(list(trap_items_table.keys())))]
+            
+        # Fill item pool with the remaining misc items
         for _ in range(len(itempool), total_required_locations):
             item = self.world.random.choice(list(misc_items_table.keys()))
-            check_quantity = list(misc_items_table[item])
-            while check_quantity[2] <= 0:
-                item = self.world.random.choice(list(misc_items_table.keys()))
-                check_quantity = list(misc_items_table[item])
+            #check_quantity = list(misc_items_table[item])
+            #while check_quantity[2] <= 0:
+                #item = self.world.random.choice(list(misc_items_table.keys()))
+                #check_quantity = list(misc_items_table[item])
             itempool += [self.create_item(item)]
-            check_quantity[2] = check_quantity[2] - 1;
-            misc_items_table[item] = tuple(check_quantity)
+            #check_quantity[2] = check_quantity[2] - 1;
+            #misc_items_table[item] = tuple(check_quantity)
 
         self.world.itempool += itempool
 
@@ -86,7 +109,7 @@ class TerrariaWorld(World):
 
     def create_item(self, name: str) -> Item:
         data = item_table[name]
-        return TerrariaItem(name, data.progression, data.code, self.player)
+        return TerrariaItem(name, ItemClassification.progression if data.progression else ItemClassification.filler, data.code, self.player)
 
     def set_rules(self):
         set_rules(self.world, self.player)

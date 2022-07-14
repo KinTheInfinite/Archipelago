@@ -8,8 +8,8 @@ class TerrariaLocation(Location):
     game: str = "Terraria"
 
 
-#Printing to the spoiler log (maybe later as custom end goal bosses)
-progression_location_table = {
+# Base Locations
+base_location_table = {
     LocationName.TERRARIA_MENU:None,
     #LocationName.KING_SLIME_DEFEATED:None,
     #LocationName.EYE_DEFEATED:None,
@@ -28,9 +28,7 @@ progression_location_table = {
     #LocationName.EMPRESS_DEFEATED:None,
     #LocationName.LUNATIC_CULTIST_DEFEATED:None,
     LocationName.MOON_LORD_DEFEATED:None,
-}
-
-achievement_location_table = {
+    
     LocationName.TIMBER:22500,
     LocationName.NO_HOBO:22501,
     LocationName.HAMMER_TIME:22502,
@@ -98,13 +96,12 @@ achievement_location_table = {
     LocationName.OBSESSIVE_DEVOTION:22564,
 }
 
-life_crystal_location_table = {f"{LocationName.LIFE_CRYSTAL} {i + 1}": i + 22700 for i in range(1, 0)}#15)}
+life_crystal_location_table = {f"{LocationName.LIFE_CRYSTAL} {i + 1}": i + 22700 for i in range(15)}
 
-mana_crystal_location_table = {f"{LocationName.MANA_CRYSTAL} {i + 1}": i + 22800 for i in range(1, 0)}#9)}
+mana_crystal_location_table = {f"{LocationName.MANA_CRYSTAL} {i + 1}": i + 22800 for i in range(9)}
 
 location_table = {
-    **progression_location_table,
-    **achievement_location_table,
+    **base_location_table,
     **life_crystal_location_table,
     **mana_crystal_location_table,
 }
