@@ -5,11 +5,12 @@ MANA_CRYSTAL           = "Mana Crystal"
 
 # BAGS
 MONEY_BAG              = "Money Bag"
-POTION_BAG             = "Potion Bag"
+REAGENT_BAG            = "Reagent Bag"
 SOUL_BAG               = "Soul Bag"
 CRATE_BAG              = "Crate Bag"
 BAR_BAG                = "Bar Bag"
 SPAWNER_BAG            = "Spawner Bag"
+MOUNT_BAG              = "Mount Bag"
 
 # TRAPS
 MOB_TRAP               = "Mob Trap"

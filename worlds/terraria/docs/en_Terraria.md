@@ -7,22 +7,19 @@ and export a config file.
 
 ## What does randomization do to this game?
 
-Recipes are unable to be crafted from certain tiers (copper, iron, adamantite, etc) and shuffled into the item pool as
-progressional upgrades. Health and mana increases are also shuffled into the item pool as progressional upgrades.
-You can receive progressional upgrades as well as crates that can drop items and make it easier to clear the game. 
-Optionally traps can be randomized into the item pool for a more difficult and hectic experience.
+Item checks are earned from completing your own achievements. The rewards you receieve are randomized depending on what
+bag you receive. Traps can also be randomized as items if enabled.
 
-## What is considered a location check in minecraft?
+## What is considered a location check in terraria?
 
-Location checks in are completed when the player completes various Terraria achievements, or when they gain
-progressional health and mana increases. You will be given a book in-game on connecting to the server containing
-the list of checks you have yet to complete.
+Location checks in are completed when the player completes various Terraria achievements. You will be able to execute
+the command /completion to see what achievements you have remaining.
 
 ## When the player receives an item, what happens?
 
-When the player receives an item in Terraria, it either unlocks crafting recipes or puts items into the player's
-inventory directly. In the event of a full inventory it will be dropped onto the ground (hope you weren't above lava).
+When the player receives an item in Terraria, it puts a bag into the player's inventory or drops it on the ground
+if your inventory is full. The bag can be opened to receive the randomized reward.
 
 ## What is the victory condition?
 
-Victory is achieved when the player kills the Wall of Flesh or Moon Lord (depending on setting).
+Victory is achieved when the player defeats the Moon Lord or the Wall of Flesh depending on settings.

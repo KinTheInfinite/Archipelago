@@ -2,7 +2,7 @@
 
 ## Required Software
 
-- Archipelago Terraria from
+- Archipelago from
   the Terraria Workshop on Steam's tModLoader
 
 ## Configuring your YAML file
@@ -21,15 +21,17 @@ you can customize your settings by visiting the [Terraria Player Settings Page](
 Use tModLoader 1.4 and create a singleplayer world with any character.
 
 Once you are in game type `/connect <AP-Address> (Port) (Password)` where `<AP-Address>` is the address of the
-Archipelago server. `(Port)` is only required if the Archipelago server is not using the default port of
+Archipelago server. `(Port)` is only required if the Archipelago server is not using the default port of `38281`. 
 
-38281. `(Password)` is only required if the Archipelago server you are using has a password set.
+`(Password)` is only required if the Archipelago server you are using has a password set.
 
 ### Play the game
 
-Once you have connected you will receieve a book in your inventory containing the checks you have yet to complete.
+Once you have connected you will be able to run the `/completion` command to see the achievements you have yet to complete.
 If you save and exit from the world you will need to run the connect command again.
 
 ## Manual Installation
 
-Download the Archipelago Terraria mod off the github, and put it in your tModLoader mods folder.
+In order to run the Terraria Randomizer you will need to have tModLoader installed on your local machine.
+Make your way to the Steam Workshop and search for the Archipelago mod on the Terraria Workhop.
+Then simply launch tModLoader and make sure that the mod is enabled in the mods section.

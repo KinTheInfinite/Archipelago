@@ -28,7 +28,7 @@ class TerrariaWorld(World):
     """
     Terraria is a 2D sandbox game with gameplay that revolves around exploration, building, crafting, combat, survival, and mining, 
     playable in both single-player and multiplayer modes. The game has a 2D sprite tile-based graphical style reminiscent of the 
-    16-bit sprites found on the Super NES. Defeat the Moon Lord or Wall of Flesh to win.
+    16-bit sprites found on the Super NES. Defeat the Moon Lord or Wall of Flesh to win!
     """
     game: str = "Terraria"
     options = terraria_options

@@ -41,11 +41,12 @@ trap_items_table = {
 # Crates / Rewards
 misc_items_table = {
     ItemName.MONEY_BAG: ItemData(22200, ItemClassification.filler),
-    ItemName.POTION_BAG: ItemData(22201, ItemClassification.filler),
+    ItemName.REAGENT_BAG: ItemData(22201, ItemClassification.filler),
     ItemName.SOUL_BAG: ItemData(22202, ItemClassification.filler),
     ItemName.CRATE_BAG: ItemData(22203, ItemClassification.filler),
     ItemName.BAR_BAG: ItemData(22204, ItemClassification.filler),
     ItemName.SPAWNER_BAG: ItemData(22205, ItemClassification.filler),
+    ItemName.MOUNT_BAG: ItemData(22206, ItemClassification.filler),
 }
 
 # Complete item table.
