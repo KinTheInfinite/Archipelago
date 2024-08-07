@@ -1,8 +1,8 @@
 ﻿from typing import List
-from worlds.smz3.TotalSMZ3.Region import Z3Region, RewardType, IReward
-from worlds.smz3.TotalSMZ3.Config import Config
-from worlds.smz3.TotalSMZ3.Location import Location, LocationType
-from worlds.smz3.TotalSMZ3.Item import Progression, ItemType
+from ...Region import Z3Region, RewardType, IReward
+from ...Config import Config
+from ...Location import Location, LocationType
+from ...Item import Progression, ItemType
 
 class SwampPalace(Z3Region, IReward):
     Name = "Swamp Palace"
@@ -10,6 +10,7 @@ class SwampPalace(Z3Region, IReward):
 
     def __init__(self, world, config: Config):
         super().__init__(world, config)
+        self.Weight = 3
         self.RegionItems = [ ItemType.KeySP, ItemType.BigKeySP, ItemType.MapSP, ItemType.CompassSP]
         self.Reward = RewardType.Null
         self.Locations = [

@@ -1,7 +1,7 @@
-﻿from worlds.smz3.TotalSMZ3.Region import SMRegion
-from worlds.smz3.TotalSMZ3.Config import Config, SMLogic
-from worlds.smz3.TotalSMZ3.Location import Location, LocationType
-from worlds.smz3.TotalSMZ3.Item import Progression
+﻿from ....Region import SMRegion
+from ....Config import Config, SMLogic
+from ....Location import Location, LocationType
+from ....Item import Progression
 
 class Crocomire(SMRegion):
     Name = "Norfair Upper Crocomire"
@@ -45,11 +45,10 @@ class Crocomire(SMRegion):
                     # /* Cathedral -> through the floor or Vulcano */
                     items.CanOpenRedDoors() and (items.CardNorfairL2 if self.Config.Keysanity else items.Super) and
                         (items.CanFly() or items.HiJump or items.SpeedBooster) and
-                        (items.CanPassBombPassages() or items.Gravity and items.Morph) and items.Wave
-                    or
+                        (items.CanPassBombPassages() or items.Gravity and items.Morph) and items.Wave) or (
                     # /* Reverse Lava Dive */
-                    items.CanAccessNorfairLowerPortal() and items.ScrewAttack and items.SpaceJump and items.Super and 
-                    items.Gravity and items.Wave and (items.CardNorfairL2 or items.Morph))
+                    items.Varia) and items.CanAccessNorfairLowerPortal() and items.ScrewAttack and items.SpaceJump and items.Super and (
+                    items.Gravity) and items.Wave and (items.CardNorfairL2 or items.Morph)
         else:
             return ((items.CanDestroyBombWalls() or items.SpeedBooster) and items.Super and items.Morph or items.CanAccessNorfairUpperPortal()) and (
                     # /* Ice Beam -> Croc Speedway */
@@ -65,5 +64,5 @@ class Crocomire(SMRegion):
                         (items.Missile or items.Super or items.Wave) # /* Blue Gate */
                     ) or (
                     # /* Reverse Lava Dive */
-                    items.CanAccessNorfairLowerPortal()) and items.ScrewAttack and items.SpaceJump and items.Varia and items.Super and (
+                    items.Varia and items.CanAccessNorfairLowerPortal()) and items.ScrewAttack and items.SpaceJump and items.Super and (
                     items.HasEnergyReserves(2)) and (items.CardNorfairL2 or items.Morph)

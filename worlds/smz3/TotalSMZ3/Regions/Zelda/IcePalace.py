@@ -1,8 +1,8 @@
 ﻿from typing import List
-from worlds.smz3.TotalSMZ3.Region import Z3Region, RewardType, IReward
-from worlds.smz3.TotalSMZ3.Config import Config
-from worlds.smz3.TotalSMZ3.Location import Location, LocationType
-from worlds.smz3.TotalSMZ3.Item import Progression, ItemType
+from ...Region import Z3Region, RewardType, IReward
+from ...Config import Config
+from ...Location import Location, LocationType
+from ...Item import Progression, ItemType
 
 class IcePalace(Z3Region, IReward):
     Name = "Ice Palace"
@@ -10,6 +10,7 @@ class IcePalace(Z3Region, IReward):
 
     def __init__(self, world, config: Config):
         super().__init__(world, config)
+        self.Weight = 4
         self.RegionItems = [ ItemType.KeyIP, ItemType.BigKeyIP, ItemType.MapIP, ItemType.CompassIP]
         self.Reward = RewardType.Null
         self.Locations = [
@@ -43,7 +44,7 @@ class IcePalace(Z3Region, IReward):
             ]
 
     def CanNotWasteKeysBeforeAccessible(self, items: Progression, locations: List[Location]):
-        return not items.BigKeyIP or any(l.ItemIs(ItemType.BigKeyIP, self.world) for l in locations)
+        return self.world.ForwardSearch or not items.BigKeyIP or any(l.ItemIs(ItemType.BigKeyIP, self.world) for l in locations)
 
     def CanEnter(self, items: Progression):
         return items.MoonPearl and items.Flippers and items.CanLiftHeavy() and items.CanMeltFreezors()

@@ -1,50 +1,57 @@
-import typing
+from dataclasses import dataclass
+from Options import Choice, DeathLink, PerGameCommonOptions
 
-from Options import Choice, Range, Option, Toggle, DeathLink, DefaultOnToggle, OptionList, OptionSet
 
-class RequiredBosses(Choice):
+class Goal(Choice):
+    """The victory condition for your run. Stuff after the goal will not be shuffled."""
+
+    display_name = "Goal"
+    option_mechanical_bosses = 0
+    # option_calamitas_clone = 1
+    option_plantera = 2
+    option_golem = 3
+    option_empress_of_light = 4
+    option_lunatic_cultist = 5
+    # option_astrum_deus = 6
+    option_moon_lord = 7
+    # option_providence_the_profaned_goddess = 8
+    # option_devourer_of_gods = 9
+    # option_yharon_dragon_of_rebirth = 10
+    option_zenith = 11
+    # option_calamity_final_bosses = 12
+    # option_adult_eidolon_wyrm = 13
+    default = 0
+
+
+class Achievements(Choice):
     """
-    Determines the win condition for the randomizer.
+    Adds checks upon collecting achievements. Achievements for clearing bosses and events are excluded.
+    "Exclude Grindy" also excludes fishing achievements.
     """
-    display_name = "Required Bosses"
+
+    display_name = "Achievements"
     option_none = 0
-    option_wall_of_flesh = 1
-    option_moon_lord = 2
-    default = 2
-    
-class TrapAmount(Range):
-    """
-    Determines the amount of traps randomized into the pool
-    """
-    display_name = "Trap Amount"
-    range_start = 0
-    range_end = 30
-    default = 6
+    option_exclude_grindy = 1
+    option_exclude_fishing = 2
+    option_all = 3
+    default = 1
 
-class ProgressiveCrafting(Toggle):
-    """
-    If enabled, crafting certain tiers of items: copper, iron, adamantite, etc
-    is locked behind progressive item upgrades.
-    """
-    display_name = "Progressive Crafting"
-    
-class ProgressiveLife(Toggle):
-    """
-    If enabled, life crystals are randomized.
-    """
-    display_name = "Progressive Life Crystals"
-    
-class ProgressiveMana(Toggle):
-    """
-    If enabled, mana crystals are randomized.
-    """
-    display_name = "Progressive Mana Crystals"
 
-terraria_options: typing.Dict[str, type(Option)] = {
-    "required_bosses": RequiredBosses,
-    "trap_amount": TrapAmount,
-    "progressive_crafting": ProgressiveCrafting,
-    "progressive_life": ProgressiveLife,
-    "progressive_mana": ProgressiveMana,
-    "death_link": DeathLink,
-}
+class FillExtraChecksWith(Choice):
+    """
+    Applies if you have achievements enabled. "Useful Items" helps to make the early game less grindy.
+    Items are rewarded to all players in your Terraria world.
+    """
+
+    display_name = "Fill Extra Checks With"
+    option_coins = 0
+    option_useful_items = 1
+    default = 1
+
+
+@dataclass
+class TerrariaOptions(PerGameCommonOptions):
+    goal: Goal
+    achievements: Achievements
+    fill_extra_checks_with: FillExtraChecksWith
+    death_link: DeathLink

@@ -1,7 +1,7 @@
-﻿from worlds.smz3.TotalSMZ3.Region import Z3Region, RewardType
-from worlds.smz3.TotalSMZ3.Config import Config
-from worlds.smz3.TotalSMZ3.Location import Location, LocationType
-from worlds.smz3.TotalSMZ3.Item import Progression
+﻿from ....Region import Z3Region, RewardType
+from ....Config import Config
+from ....Location import Location, LocationType
+from ....Item import Progression
 
 class South(Z3Region):
     Name = "Dark World South"
@@ -21,7 +21,7 @@ class South(Z3Region):
 
     def CanEnter(self, items: Progression):
         return items.MoonPearl and ((
-                self.world.CanAquire(items, RewardType.Agahnim) or
+                self.world.CanAcquire(items, RewardType.Agahnim) or
                 items.CanAccessDarkWorldPortal(self.Config) and items.Flippers
             ) and (items.Hammer or items.Hookshot and (items.Flippers or items.CanLiftLight())) or
             items.Hammer and items.CanLiftLight() or

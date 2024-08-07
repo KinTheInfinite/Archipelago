@@ -1,13 +1,13 @@
-﻿from worlds.smz3.TotalSMZ3.Region import SMRegion, IReward, RewardType
-from worlds.smz3.TotalSMZ3.Config import Config
-from worlds.smz3.TotalSMZ3.Location import Location, LocationType
-from worlds.smz3.TotalSMZ3.Item import Progression
+﻿from ....Region import SMRegion, IReward, RewardType
+from ....Config import Config
+from ....Location import Location, LocationType
+from ....Item import Progression
 
 class Kraid(SMRegion, IReward):
     Name = "Brinstar Kraid"
     Area = "Brinstar"
 
-    Reward = RewardType.GoldenFourBoss
+    Reward = RewardType.Null
 
     def __init__(self, world, config: Config):
         super().__init__(world, config)

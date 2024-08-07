@@ -1,25 +1,19 @@
 # Terraria
 
-## Where is the settings page?
+## Where is the options page?
 
-The [player settings page for this game](../player-settings) contains all the options you need to configure
-and export a config file.
+The [player options page for this game](../player-options) contains all the options you need to configure and export a
+config file.
 
 ## What does randomization do to this game?
 
-Item checks are earned from completing your own achievements. The rewards you receieve are randomized depending on what
-bag you receive. Traps can also be randomized as items if enabled.
+Boss/event flags are randomized. So, defeating Empress of Light could give you Post-Skeletron, which allows you to enter
+the Dungeon, for example. In your player options, you may also add item rewards and achievements to the pool.
 
-## What is considered a location check in terraria?
+## What Terraria items can appear in other players' worlds?
 
-Location checks in are completed when the player completes various Terraria achievements. You will be able to execute
-the command /completion to see what achievements you have remaining.
+Boss/event flags, and item rewards if enabled.
 
-## When the player receives an item, what happens?
+## What does another world's item look like in Terraria?
 
-When the player receives an item in Terraria, it puts a bag into the player's inventory or drops it on the ground
-if your inventory is full. The bag can be opened to receive the randomized reward.
-
-## What is the victory condition?
-
-Victory is achieved when the player defeats the Moon Lord or the Wall of Flesh depending on settings.
+You won't see the items in Terraria, but you will receive a chat message, telling you what item you sent to whom.

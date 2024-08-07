@@ -1,7 +1,7 @@
-﻿from worlds.smz3.TotalSMZ3.Region import SMRegion
-from worlds.smz3.TotalSMZ3.Config import Config, SMLogic
-from worlds.smz3.TotalSMZ3.Location import Location, LocationType
-from worlds.smz3.TotalSMZ3.Item import Progression
+﻿from ....Region import SMRegion
+from ....Config import Config, SMLogic
+from ....Location import Location, LocationType
+from ....Item import Progression
 
 class East(SMRegion):
     Name = "Crateria East"
@@ -17,9 +17,9 @@ class East(SMRegion):
                     self.world.CanEnter("Wrecked Ship", items)) if self.Logic == SMLogic.Normal else \
                 lambda items: items.Morph),
             Location(self, 2, 0x8F81EE, LocationType.Hidden, "Missile (outside Wrecked Ship top)",
-                lambda items: self.world.CanEnter("Wrecked Ship", items) and (not self.Config.Keysanity or items.CardWreckedShipBoss) and items.CanPassBombPassages()),
+                lambda items: self.world.CanEnter("Wrecked Ship", items) and items.CardWreckedShipBoss and items.CanPassBombPassages()),
             Location(self, 3, 0x8F81F4, LocationType.Visible, "Missile (outside Wrecked Ship middle)",
-                lambda items: self.world.CanEnter("Wrecked Ship", items) and (not self.Config.Keysanity or items.CardWreckedShipBoss) and items.CanPassBombPassages()),
+                lambda items: self.world.CanEnter("Wrecked Ship", items) and items.CardWreckedShipBoss and items.CanPassBombPassages()),
             Location(self, 4, 0x8F8248, LocationType.Visible, "Missile (Crateria moat)",
                 lambda items: True)
             ]

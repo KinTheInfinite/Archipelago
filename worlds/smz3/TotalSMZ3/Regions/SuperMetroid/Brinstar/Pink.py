@@ -1,7 +1,7 @@
-﻿from worlds.smz3.TotalSMZ3.Region import SMRegion
-from worlds.smz3.TotalSMZ3.Config import Config, SMLogic
-from worlds.smz3.TotalSMZ3.Location import Location, LocationType
-from worlds.smz3.TotalSMZ3.Item import Progression
+﻿from ....Region import SMRegion
+from ....Config import Config, SMLogic
+from ....Location import Location, LocationType
+from ....Item import Progression
 
 class Pink(SMRegion):
     Name = "Brinstar Pink"
@@ -40,5 +40,5 @@ class Pink(SMRegion):
         else:
             return items.CanOpenRedDoors() and (items.CanDestroyBombWalls() or items.SpeedBooster) or \
                 items.CanUsePowerBombs() or \
-                items.CanAccessNorfairUpperPortal() and items.Morph and (items.CanOpenRedDoors() or items.Wave) and \
+                items.CanAccessNorfairUpperPortal() and items.Morph and (items.Missile or items.Super or items.Wave ) and \
                     (items.Ice or items.HiJump or items.CanSpringBallJump() or items.CanFly())

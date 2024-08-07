@@ -4,15 +4,23 @@
 *_Spoiler.txt
 *.bmbp
 *.apbp
+*.apl2ac
 *.apm3
 *.apmc
 *.apz5
+*.aptloz
+*.apemerald
 *.pyc
 *.pyd
 *.sfc
 *.z64
 *.n64
 *.nes
+*.smc
+*.sms
+*.gb
+*.gbc
+*.gba
 *.wixobj
 *.lck
 *.db3
@@ -20,14 +28,22 @@
 *multisave
 *.archipelago
 *.apsave
+*.BIN
+*.puml
 
+setups
 build
 bundle/components.wxs
 dist
+/prof/
 README.html
 .vs/
 EnemizerCLI/
 /Players/
+/SNI/
+/sni-*/
+/appimagetool*
+/host.yaml
 /options.yaml
 /config.yaml
 /logs/
@@ -43,7 +59,10 @@ Output Logs/
 /freeze_requirements.txt
 /Archipelago.zip
 /setup.ini
-
+/installdelete.iss
+/data/user.kv
+/datapackage
+/custom_worlds
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -116,17 +135,23 @@ target/
 profile_default/
 ipython_config.py
 
+# vim editor
+*.swp
+
 # SageMath parsed files
 *.sage.py
 
 # Environments
 .env
-.venv
+.venv*
 env/
 venv/
+/venv*/
 ENV/
 env.bak/
 venv.bak/
+*.code-workspace
+shell.nix
 
 # Spyder project settings
 .spyderproject
@@ -152,10 +177,26 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-#minecraft server stuff
+# Cython intermediates
+_speedups.c
+_speedups.cpp
+_speedups.html
+
+# minecraft server stuff
 jdk*/
 minecraft*/
 minecraft_versions.json
+!worlds/minecraft/
 
-#pyenv
+# pyenv
 .python-version
+
+#undertale stuff
+/Undertale/
+
+# OS General Files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+[Dd]esktop.ini

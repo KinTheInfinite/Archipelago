@@ -1,8 +1,8 @@
 ﻿from typing import List
-from worlds.smz3.TotalSMZ3.Region import Z3Region, RewardType, IReward, IMedallionAccess
-from worlds.smz3.TotalSMZ3.Config import Config
-from worlds.smz3.TotalSMZ3.Location import Location, LocationType
-from worlds.smz3.TotalSMZ3.Item import Progression, ItemType
+from ...Region import Z3Region, RewardType, IReward, IMedallionAccess
+from ...Config import Config
+from ...Location import Location, LocationType
+from ...Item import Progression, ItemType
 
 class TurtleRock(Z3Region, IReward, IMedallionAccess):
     Name = "Turtle Rock"
@@ -10,9 +10,10 @@ class TurtleRock(Z3Region, IReward, IMedallionAccess):
 
     def __init__(self, world, config: Config):
         super().__init__(world, config)
+        self.Weight = 6
         self.RegionItems = [ ItemType.KeyTR, ItemType.BigKeyTR, ItemType.MapTR, ItemType.CompassTR]
         self.Reward = RewardType.Null
-        self.Medallion = ItemType.Nothing
+        self.Medallion = None
         self.Locations = [
             Location(self, 256+177, 0x1EA22, LocationType.Regular, "Turtle Rock - Compass Chest"),
             Location(self, 256+178, 0x1EA1C, LocationType.Regular, "Turtle Rock - Roller Room - Left",
@@ -46,8 +47,9 @@ class TurtleRock(Z3Region, IReward, IMedallionAccess):
         return items.Firerod and items.Icerod
 
     def CanEnter(self, items: Progression):
-        return (items.Bombos if self.Medallion == ItemType.Bombos else (
-                    items.Ether if self.Medallion == ItemType.Ether else items.Quake)) and items.Sword and \
+        from ...WorldState import Medallion
+        return (items.Bombos if self.Medallion == Medallion.Bombos else (
+                    items.Ether if self.Medallion == Medallion.Ether else items.Quake)) and items.Sword and \
             items.MoonPearl and items.CanLiftHeavy() and items.Hammer and items.Somaria and \
             self.world.CanEnter("Light World Death Mountain East", items)
 

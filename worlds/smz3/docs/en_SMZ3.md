@@ -1,8 +1,8 @@
 # SMZ3
 
-## Where is the settings page?
+## Where is the options page?
 
-The [player settings page for this game](../player-settings) contains all the options you need to configure and export a
+The [player options page for this game](../player-options) contains all the options you need to configure and export a
 config file.
 
 ## What does randomization do to this game?
@@ -23,7 +23,8 @@ certain items to your own world.
 
 ## What does another world's item look like in Super Metroid?
 
-A unique item sprite has been added to the game to represent items belonging to another world.
+Two unique item sprites have been added to the game to represent items belonging to another world. Progression items have
+a small up arrow on the sprite and non-progression don't.
 
 ## What does another world's item look like in LttP?
 
