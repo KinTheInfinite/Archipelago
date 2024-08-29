@@ -2,8 +2,9 @@
 
 ## Where is the options page?
 
-The player options page for this game contains all the options you need to configure and export a config file. Player
-options page link: [Enter The Gungeon Player Options Page](../player-options).
+The player options page for this game contains all the options you need to configure and export a config file.
+
+[Enter The Gungeon Player Options Page](../player-options).
 
 ## What does randomization do to this game?
 Unlocking chests gives you progression items which make reaching your side goals easier, as well as random guns, items, and traps.

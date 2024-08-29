@@ -11,9 +11,10 @@
 
 1. Install Enter The Gungeon through either Steam or Epic Games Store.
 2. Use Thunderstore to install the Gungeon Archipelago mod for Enter The Gungeon
-3. Start Modded and use the console ` or F2 keys to connect to the game
+3. Start The Game Modded
 
 # Joining a MultiWorld Game
 
-To join an Archipelago MultiWorld game, you must use the console and type the following command
-  `-archipelago connect (ip) (port) (slot name) (password: optional) [All must be seperated by spaces and without the parenthesis]
+To join an Archipelago MultiWorld game, you must use the console in game (` or F2 keys) and type the following command
+  
+archipelago connect (ip) (port) (slot name) (password: optional) [All must be seperated by spaces and without the parenthesis]
